@@ -22,3 +22,17 @@ exports.addReport = bigPromise(async (req, res, next) => {
         report,
     });
 });
+
+exports.getAllReports = bigPromise(async (req, res, next) => {
+    const reports = await Report.find();
+    if (!reports) {
+        return res.status(400).json({
+            success: false,
+            message: 'No reports found',
+        });
+    }
+    res.status(200).json({
+        success: true,
+        reports,
+    });
+});

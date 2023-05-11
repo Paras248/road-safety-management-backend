@@ -9,6 +9,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api/v1', report);
+app.use('/api', report);
 
 module.exports = app;
